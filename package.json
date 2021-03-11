@@ -1,0 +1,8 @@
+{
+  "name": "pipeline-architecture-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yuredev <yurematias@ufrn.edu.br>",
+  "license": "MIT",
+  "type": "module"
+}
