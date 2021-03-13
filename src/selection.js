@@ -1,10 +1,11 @@
 import { readFileSync, writeFileSync } from 'fs';
+import { resolve } from 'path';
 
 /**
  * @param {string} filePath 
  * @param {string} desiredLetter 
  */
-export function select(filePath, desiredLetter) {
+((filePath, desiredLetter) => {
   const data = readFileSync(filePath).toString();
   const lineBreaker = process.platform === 'linux' ? '\n' : '\r\n';
   const names = data.split(lineBreaker);
@@ -17,6 +18,6 @@ export function select(filePath, desiredLetter) {
   ));
   const textToWrite = filteredNames.map(name => name + lineBreaker).join('');
   
-  writeFileSync('selected.txt', textToWrite);
-}
+  writeFileSync(resolve('..', 'selected.txt'), textToWrite);
+})(process.argv[2], process.argv[3]);
 
